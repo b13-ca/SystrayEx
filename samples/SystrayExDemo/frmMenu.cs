@@ -4,7 +4,7 @@ namespace SystrayExDemo;
 
 //don't forget to make the change to Program.cs:
 //  Application.Run(new FrmMenu());
-//  SystrayApp.Run(new FrmMenu());
+//  to SystrayApp.Run(new FrmMenu());
 internal partial class FrmMenu : BaseFormEx {
     private readonly MenuItemEx _MenuItemEx;
     private readonly List<Image> _lstImageIcon;

@@ -18,7 +18,7 @@
     <Product>SystrayEx</Product>
     <Title>b13 SystrayEx WinForms components for system tray applications</Title>
     <VerMajor>1</VerMajor>
-    <VerMinor>7</VerMinor>
+    <VerMinor>8</VerMinor>
 
     <UtcYear>$([System.DateTime]::UtcNow.Year)</UtcYear>
     <UtcMonth>$([System.DateTime]::UtcNow.Month)</UtcMonth>
