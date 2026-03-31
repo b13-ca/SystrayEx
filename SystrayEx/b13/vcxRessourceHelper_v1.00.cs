@@ -27,7 +27,7 @@ namespace b13;
 #endregion b13 namespace
 
 public static class RessourceHelperEx {
-    internal static Size ScaleSize(int pintWidth, int pintHeight, int pintNewWidth = 0, int pintNewHeight = 0) {
+    public static Size ScaleSize(int pintWidth, int pintHeight, int pintNewWidth = 0, int pintNewHeight = 0) {
         int intNewWidth = pintNewWidth;
         int intNewHeight = pintNewHeight;
 
@@ -45,7 +45,7 @@ public static class RessourceHelperEx {
         return szRet;
     }
 
-    internal static Bitmap CreateDefaultImage(int plngWidth, int plngHeight, Color pcolBackground) {
+    public static Bitmap CreateDefaultImage(int plngWidth, int plngHeight, Color pcolBackground) {
         Bitmap objRet = new Bitmap(plngWidth, plngHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
         using (Graphics objGraphics = Graphics.FromImage(objRet)) {
@@ -55,7 +55,7 @@ public static class RessourceHelperEx {
         return objRet;
     }
 
-    internal static Bitmap CombineImages(Image pobjImage, Image pobjOverlay, int pintX, int pintY) {
+    public static Bitmap CombineImages(Image pobjImage, Image pobjOverlay, int pintX, int pintY) {
         Bitmap objRet = CreateDefaultImage(pobjImage.Width, pobjImage.Height, Color.Transparent);
 
         using (Graphics objGraphics = Graphics.FromImage(objRet)) {
@@ -70,7 +70,7 @@ public static class RessourceHelperEx {
         return objRet;
     }
 
-    internal static Bitmap AddRectangleBorder(Image pobjImage, Color pcolBorder, int pintPenSize = 1) {
+    public static Bitmap AddRectangleBorder(Image pobjImage, Color pcolBorder, int pintPenSize = 1) {
         Bitmap objRet = CreateDefaultImage(pobjImage.Width, pobjImage.Height, Color.Transparent);
 
         using (Graphics objGraphics = Graphics.FromImage(objRet)) {
@@ -101,7 +101,7 @@ public static class RessourceHelperEx {
         return objRet;
     }
 
-    internal static Image GetImageFromList(ImageList pimgList, string pstrName, int pintResizedHeight = 32) {
+    public static Image GetImageFromList(ImageList pimgList, string pstrName, int pintResizedHeight = 32) {
         Image objRet;
 
         Image? tmpIcon = pimgList.Images[pstrName];
@@ -121,7 +121,7 @@ public static class RessourceHelperEx {
         return objRet;
     }
 
-    internal static Bitmap ResizeImage(Image pobjImage, int pintNewWidth, int pintNewHeight) {
+    public static Bitmap ResizeImage(Image pobjImage, int pintNewWidth, int pintNewHeight) {
         Bitmap objRet = CreateDefaultImage(pintNewWidth, pintNewHeight, Color.Transparent);
 
         using (Graphics objGraphics = Graphics.FromImage(objRet)) {

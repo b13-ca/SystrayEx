@@ -30,7 +30,7 @@ namespace b13;
 #pragma warning restore IDE0130
 #endregion b13 namespace
 
-internal static class ReflectionHelper {
+public static class ReflectionHelper {
     private static readonly BindingFlags _enmBindingFlags = BindingFlags.Static | BindingFlags.NonPublic;
 
     private static Assembly? _asm;
@@ -46,7 +46,7 @@ internal static class ReflectionHelper {
         }
     }
 
-    internal static void Initialize(Form pobjForm) {
+    public static void Initialize(Form pobjForm) {
         if (_asm == null) {
             ArgumentNullException.ThrowIfNull(pobjForm);
 
@@ -67,7 +67,7 @@ internal static class ReflectionHelper {
         return objRet;
     }
 
-    internal static Icon GetIconFromRessource(string pstrName) {
+    public static Icon GetIconFromRessource(string pstrName) {
         Icon? objRet = SystemIcons.Application;
 
         if (ReflectionHelper.ResourcesType != null) {
@@ -84,7 +84,7 @@ internal static class ReflectionHelper {
         return objRet;
     }
 
-    internal static Image GetImageFromRessource(string pstrName) {
+    public static Image GetImageFromRessource(string pstrName) {
         Image objRet = CreateDefaultImage(1, 1, Color.Transparent);
 
         if (ReflectionHelper.ResourcesType != null) {
