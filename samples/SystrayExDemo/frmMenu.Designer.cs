@@ -1,4 +1,4 @@
-﻿namespace s3Bucket;
+﻿namespace SystrayExDemo;
 
 partial class FrmMenu {
     /// <summary>

@@ -1,6 +1,6 @@
 using b13;
 
-namespace s3Bucket;
+namespace SystrayExDemo;
 
 internal partial class FrmMenu : BaseFormEx, ISystrayAware {
     private ISystrayService? _systrayService;

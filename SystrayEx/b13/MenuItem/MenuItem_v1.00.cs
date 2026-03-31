@@ -29,7 +29,7 @@ namespace b13;
 public class MenuItemEx : IDisposable {
     private bool _disposed = false;
 
-    internal event EventHandler<string>? OnMenuItem_Click;
+    public event EventHandler<string>? OnMenuItem_Click;
     internal const int MAX_ICON_HEIGHT = 32;
 
     private readonly Form _objForm;
@@ -105,7 +105,7 @@ public class MenuItemEx : IDisposable {
     }
 
     //internal void Add(string pstrText) {
-    internal void Add(Image pobjIcon, string pstrText) {
+    public void Add(Image pobjIcon, string pstrText) {
         if (pobjIcon.Width > MAX_ICON_HEIGHT || pobjIcon.Height > MAX_ICON_HEIGHT) {
             throw new ArgumentException("invalid Icon image passed");
         }
@@ -266,7 +266,7 @@ public class MenuItemEx : IDisposable {
         return intRet;
     }
 
-    internal Image CreateUI() {
+    public Image CreateUI() {
         int intPenSize = this.BorderHeight;
 
         int intMenuItemWidth = this.GetMenuItemWidth() + 10;
