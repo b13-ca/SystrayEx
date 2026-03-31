@@ -2,24 +2,10 @@ using b13;
 
 namespace SystrayExDemo;
 
-internal partial class FrmMenu : BaseFormEx, ISystrayAware {
-    private ISystrayService? _systrayService;
-
-    public void SetSystrayService(ISystrayService pobjService) {
-        this._systrayService = pobjService;
-    }
-
-    internal ISystrayService SystrayService {
-        get {
-            if (this._systrayService == null) {
-                throw new InvalidOperationException("SystrayService not initialized");
-            }
-
-            return this._systrayService;
-        }
-    }
-
-    //internal partial class FrmConfig : Form {
+//don't forget to make the change to Program.cs:
+//  Application.Run(new FrmMenu());
+//  SystrayApp.Run(new FrmMenu());
+internal partial class FrmMenu : BaseFormEx {
     private readonly MenuItemEx _MenuItemEx;
     private readonly List<Image> _lstImageIcon;
     private Image? _imgBackground;
@@ -69,7 +55,6 @@ internal partial class FrmMenu : BaseFormEx, ISystrayAware {
                 break;
 
             case "SETTINGS":
-                //this.SystrayService.ChangeIcon(1, "");
                 SystrayApp.Context.ChangeIcon(1);
                 break;
 
