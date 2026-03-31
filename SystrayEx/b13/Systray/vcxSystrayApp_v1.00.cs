@@ -28,8 +28,8 @@ namespace b13;
 
 //in Program.cs, replace [Application.Run] by [SystrayApp.Run]
 //You must embed [systrayIcon1.ico], [systrayIcon2.ico] and [systrayIcon3.ico] in [Ressources.resx]
-internal static class SystrayApp {
-    internal static void Run(Form pobjForm) {
+public static class SystrayApp {
+    public static void Run(Form pobjForm) {
         ReflectionHelper.Initialize(pobjForm);
 
         bool blnError = true;
@@ -59,8 +59,9 @@ internal static class SystrayApp {
         }
     }
 
-    internal static SystrayAppContext? _SystrayContext = null;
-    internal static SystrayAppContext Context {
+    private static SystrayAppContext? _SystrayContext = null;
+
+    public static SystrayAppContext Context {
         get {
             return _SystrayContext!;
         }

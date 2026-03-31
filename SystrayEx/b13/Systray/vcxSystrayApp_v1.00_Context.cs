@@ -26,7 +26,7 @@ namespace b13;
 #pragma warning restore IDE0130
 #endregion b13 namespace
 
-internal class SystrayAppContext : ApplicationContext, ISystrayService {
+public class SystrayAppContext : ApplicationContext, ISystrayService {
     #region Declaration
     // To detect redundant calls
     private volatile bool _disposed = false;
@@ -38,7 +38,7 @@ internal class SystrayAppContext : ApplicationContext, ISystrayService {
     #endregion Declaration
 
     #region Constructor
-    internal SystrayAppContext(Form pobjform) {
+    public SystrayAppContext(Form pobjform) {
         // Instantiate disposable object.
         _mainForm = pobjform;
         _mainForm.ShowInTaskbar = true;  //To avoid a bug in Minimize/Restore
@@ -48,9 +48,9 @@ internal class SystrayAppContext : ApplicationContext, ISystrayService {
         // 3. At the top, choose Icons (or Images)
         // 4. Click Add Resource → Add Existing File…
         // 5. Select your .ico file (must be systray1.ico, systray2.ico, systray3.ico)
-        this.IconArray[0] = ReflectionHelper.GetIconFromRessource("systrayIcon1");
-        this.IconArray[1] = ReflectionHelper.GetIconFromRessource("systrayIcon2");
-        this.IconArray[2] = ReflectionHelper.GetIconFromRessource("systrayIcon3");
+        this.IconArray[0] = ReflectionHelper.GetIconFromRessource("systrayIcon1");  //systrayIcon1.ico
+        this.IconArray[1] = ReflectionHelper.GetIconFromRessource("systrayIcon2");  //systrayIcon2.ico
+        this.IconArray[2] = ReflectionHelper.GetIconFromRessource("systrayIcon3");  //systrayIcon3.ico
 
         // Initialize Tray Icon
         this._trayIcon = new NotifyIcon() {
