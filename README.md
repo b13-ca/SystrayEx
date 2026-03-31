@@ -34,9 +34,9 @@ oIId: v2.00/2032/160e0e6a3176a8c4235332aa8e0d422c
 
 ## Revision
 ```
-2026-03-30 2026.3.17.23850  RC1 : Release Candidate 1;
-                            versionning is Year, Major, Minor, Revision;
-                            where revision is : (Year - 2026) * 372 + (Month * 31) + day;
+2026-03-30 2026.1.0.93   RC1 : Release Candidate 1;
+                         versionning is Year, Major, Minor, Revision;
+                         where revision is : (Year - 2026) * 372 + (Month * 31) + day;
 ```
 
 ## Known Bugs
