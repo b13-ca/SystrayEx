@@ -26,7 +26,7 @@ namespace b13;
 #pragma warning restore IDE0130
 #endregion b13 namespace
 
-public class SystrayAppContext : ApplicationContext, ISystrayService {
+public class SystrayAppContext : ApplicationContext {
     #region Declaration
     // To detect redundant calls
     private volatile bool _disposed = false;

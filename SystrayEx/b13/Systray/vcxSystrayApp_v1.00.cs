@@ -29,6 +29,18 @@ namespace b13;
 //in Program.cs, replace [Application.Run] by [SystrayApp.Run]
 //You must embed [systrayIcon1.ico], [systrayIcon2.ico] and [systrayIcon3.ico] in [Ressources.resx]
 public static class SystrayApp {
+    private static SystrayAppContext? _SystrayContext = null;
+
+    public static SystrayAppContext Context {
+        get {
+            if (_SystrayContext == null) {
+                throw new InvalidOperationException("SystrayApp.Context not initialized");
+            }
+
+            return _SystrayContext!;
+        }
+    }
+
     public static void Run(Form pobjForm) {
         ReflectionHelper.Initialize(pobjForm);
 
@@ -41,10 +53,6 @@ public static class SystrayApp {
                 using (Mutex objMutex = new Mutex(false, objAppMutex)) {
                     if (objMutex.WaitOne(0, false)) {
                         _SystrayContext = new SystrayAppContext(pobjForm);
-
-                        if (pobjForm is ISystrayAware objAware) {
-                            objAware.SetSystrayService(_SystrayContext);
-                        }
                         Application.Run(_SystrayContext);
                         blnError = false;
                     }
@@ -56,14 +64,6 @@ public static class SystrayApp {
 
         if (blnError) {
             MessageBox.Show("an instance is already running", "Error");
-        }
-    }
-
-    private static SystrayAppContext? _SystrayContext = null;
-
-    public static SystrayAppContext Context {
-        get {
-            return _SystrayContext!;
         }
     }
 }
