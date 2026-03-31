@@ -399,3 +399,22 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# =========================
+# Prototype Omega
+# =========================
+basedOn/
+
+# =========================
+# Windows temporary file
+# =========================
+
+# Windows image file caches
+thumbs.db
+
+# Folder config file
+desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+# =========================
