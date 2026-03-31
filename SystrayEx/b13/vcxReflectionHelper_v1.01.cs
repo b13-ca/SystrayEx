@@ -74,9 +74,17 @@ public static class ReflectionHelper {
             PropertyInfo? prop = ReflectionHelper.ResourcesType.GetProperty(pstrName, _enmBindingFlags);
 
             if (prop != null) {
-                Icon? tmpIcon = prop.GetValue(null) as Icon;
-                if (tmpIcon != null) {
-                    objRet = tmpIcon;
+                try {
+                    Icon? tmpRet = prop.GetValue(null) as Icon;
+                    if (tmpRet != null) {
+                        objRet = tmpRet;
+                    }
+                } catch {
+                    // Error come from that: var tmpRet = prop.GetValue(null);
+                    // This seem to occur when you copy a project, rename file manually and try
+                    // to run the project without erasing then rebuilding the [Ressources.resx] file.
+                    // maybe it's because the [Ressources] directory moved ?
+                    MessageBox.Show("[Ressources.resx] doesn't match your project", "Error");
                 }
             }
         }
@@ -91,9 +99,17 @@ public static class ReflectionHelper {
             PropertyInfo? prop = ReflectionHelper.ResourcesType.GetProperty(pstrName, _enmBindingFlags);
 
             if (prop != null) {
-                Image? tmpRet = prop.GetValue(null) as Image;
-                if (tmpRet != null) {
-                    objRet = tmpRet;
+                try {
+                    Image? tmpRet = prop.GetValue(null) as Image;
+                    if (tmpRet != null) {
+                        objRet = tmpRet;
+                    }
+                } catch {
+                    // Error come from that: var tmpRet = prop.GetValue(null);
+                    // This seem to occur when you copy a project, rename file manually and try
+                    // to run the project without erasing then rebuilding the [Ressources.resx] file.
+                    // maybe it's because the [Ressources] directory moved ?
+                    MessageBox.Show("[Ressources.resx] doesn't match your project", "Error");
                 }
             }
         }
