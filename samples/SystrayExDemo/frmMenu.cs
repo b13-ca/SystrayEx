@@ -9,7 +9,7 @@ internal partial class FrmMenu : BaseFormEx, ISystrayAware {
         this._systrayService = pobjService;
     }
 
-    private ISystrayService SystrayService {
+    internal ISystrayService SystrayService {
         get {
             if (this._systrayService == null) {
                 throw new InvalidOperationException("SystrayService not initialized");
@@ -69,11 +69,8 @@ internal partial class FrmMenu : BaseFormEx, ISystrayAware {
                 break;
 
             case "SETTINGS":
-                //SystrayApp.Context.ChangeIcon(1);
-                this.SystrayService.ChangeIcon(1, "");
-                //this._systrayService.ChangeIcon(1, "");
-                //this._service.ChangeIcon(1, "Hello");
-                //ChangeIcon
+                //this.SystrayService.ChangeIcon(1, "");
+                SystrayApp.Context.ChangeIcon(1);
                 break;
 
             default:
